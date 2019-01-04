@@ -1,19 +1,18 @@
 export const FAKE_USER = {
-  firstName: 'Dave',
-  lastName: 'Ceddia',
-  username: 'dave',
-  avatar:
-    'https://www.gravatar.com/avatar/5c3dd2d257ff0e14dbd2583485dbd44b?s=32'
-};
+  firstName: 'Tri',
+  lastName: 'Hoang',
+  username: 'hmtri',
+  avatar: 'https://avatars3.githubusercontent.com/u/16288424?s=32'
+}
 
 export function login(username, password) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (username === 'dave' && password === 'secret') {
-        resolve(FAKE_USER);
+      if (username === 'hmtri' && password === 'hmtri') {
+        resolve(FAKE_USER)
       } else {
-        reject({ message: 'Invalid username or password' });
+        reject({ message: 'Invalid username or password' })
       }
-    }, 300);
-  });
+    }, 300)
+  })
 }
