@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react'
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 //lesson
 //Pure component use shallow compare => not deep compare
 //react memo same as pure component not deep compare
@@ -11,6 +11,8 @@ import React, { useState, useEffect, useMemo, useRef } from 'react'
 //React.memo() and useMemo() both involve "if you see the same inputs as last time, don't do any extra work
 //return what you had before" but React.memo is for wrapping up entire components,
 //and useMemo() is for whatever you want to return from the callback.
+//useMemo for data memoizing and useCallback for function memoizing
+//ex const datas = useMemo(() => fn, []), const handleSomeThing = useCallback(() => fn, [])
 
 // class Sum extends React.Component {
 //   shouldComponentUpdate(nextProps) {
@@ -61,6 +63,8 @@ function useMemoWithCustomCondition(fn, memoFn) {
 const Sum = ({ a, b, on }) => {
   const style = useMemo(() => setStyle(on), [on])
   const expensiveSum = useMemo(() => sumExpensively(a, b), [a, b])
+  //const expensiveSumFunc = useCallback(() => sumExpensively(a, b), [a, b])
+
   // const conditionRerun = useMemo(() => expensiveSum % 5 === 0, [expensiveSum])
   // const expensiveProductWhenSumDivisibleFive = useMemo(() => doExpensiveProduct(a, b), [
   //   conditionRerun
